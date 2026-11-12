@@ -1,0 +1,42 @@
+name: compilar programa
+
+on:
+ push:
+    branches: [ test ]
+  workflow_dispatch: 
+
+jobs:
+  compile-test-linux:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Checkout del repositorio
+        uses: actions/checkout@v6
+
+
+      
+      - name: Compilar
+        make: 
+
+      
+      - name: Comprobar binario
+        run: |
+		./conversor c2f100
+	
+   compile-test-macos:
+    runs-on: macos-latest
+    steps:
+
+      - name: Checkout del repositorio
+        uses: actions/checkout@v6
+
+
+
+      - name: Compilar                            
+        make:  
+
+
+      - name: Comprobar binario               
+        run: |
+                ./conversor c2f100
+
